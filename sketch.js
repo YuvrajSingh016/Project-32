@@ -69,13 +69,13 @@ function setup() {
 
 }
 function draw() {
-  //background(56,44,44); 
+
   if(backgroundImg)
     background(backgroundImg);
 
 
   textSize(20);
-  fill("lightyellow");
+  fill("black");
  
   text("Drag the polygon and destroy the blocks",300,30);
   text("Score: "+score,750,40);
@@ -161,19 +161,19 @@ function keyPressed(){
   }
 }
 async function getBackgroundImage(){
-   var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-   var responseJSON = await response.json();
+  var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var responseJSON = await response.json();
 
-   var datetime = responseJSON.datetime;
-   var hour = datetime.slice(11, 13);
-   //console.log(hour);
+  var datetime = responseJSON.datetime;
+  var hour = datetime.slice(11, 13);
 
-   if (hour >= 06 && hour <= 18) {
-     bg = "images/light.jpg";
-   } else {
-     bg = "images/dark.jpg";
-   }
 
-   backgroundImg = loadImage(bg);
-   console.log(backgroundImg);
+  if (hour >= 06 && hour <= 18) {
+    bg = "images/light.jpg";
+  } else {
+    bg = "images/dark.jpg";
+  }
+
+  backgroundImg = loadImage(bg);
+  console.log(backgroundImg);
 }
